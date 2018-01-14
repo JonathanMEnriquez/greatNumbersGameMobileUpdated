@@ -64,6 +64,18 @@
                                 <color key="textColor" red="0.35723704099999998" green="0.66819041970000004" blue="0.98382884260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gz-gI-avf">
+                                <rect key="frame" x="130" y="396" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.35723704099999998" green="0.66819041970000004" blue="0.98382884260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Retry">
+                                    <color key="titleColor" red="0.94648755350000002" green="0.98382884260000003" blue="0.94090484910000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="retryButtonIsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="COY-ut-R72"/>
+                                    <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qKo-7E-gk9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -96,6 +108,8 @@
                     <connections>
                         <outlet property="guessesLabel" destination="fR6-G4-tNg" id="wLp-JX-Fan"/>
                         <outlet property="inputField" destination="7oc-OK-DLR" id="rBH-ab-yZl"/>
+                        <outlet property="retryButtonLabel" destination="0gz-gI-avf" id="1kV-f3-VNu"/>
+                        <outlet property="submitButtonLabel" destination="3zo-KZ-rV1" id="EzE-GO-JK2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

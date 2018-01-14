@@ -20,28 +20,37 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var inputField: UITextField!
     
+    @IBOutlet var retryButtonLabel: UIButton!
+    
+    @IBOutlet var submitButtonLabel: UIButton!
+    
     @IBAction func submitButton(_ sender: Any) {
         
         //Check if game is won already
-        
+    
         if didWin == true {
             
             return
         }
-        
+    
         // Validate input as a boolean
         let isValid = validateInput(inputField.text!)
-        
+    
         if isValid == false {
             
             return
         }
-        
+    
         //Check input versus winning number
-        
+    
         compareNums(num1: winningNumber, num2: inputField.text!)
-        
     }
+    
+    @IBAction func retryButtonIsPressed(_ sender: UIButton) {
+        
+        restartGame()
+    }
+    
     
     
     override func viewDidLoad() {
@@ -71,17 +80,6 @@ class ViewController: UIViewController {
     }
     
     func validateInput(_ inputText: String) -> Bool {
-        
-        if inputField.text == nil {
-            
-            let message = "Please enter a number"
-            
-            let title = "Error"
-            
-            alertUser(title, message)
-            
-            return false
-        }
         
         guard Int(inputField.text!) != nil else {
             
@@ -114,6 +112,10 @@ class ViewController: UIViewController {
             message = "You guessed the correct number: \(num2)"
             didWin = true
             
+            submitButtonLabel.isEnabled = false
+            submitButtonLabel.alpha = 0
+            retryButtonLabel.isEnabled = true
+            retryButtonLabel.alpha = 1
         }
         
         else if num1 > input! {
@@ -139,5 +141,17 @@ class ViewController: UIViewController {
         alertUser(title, message)
     }
 
+    func restartGame() {
+        
+        didWin = false
+        winningNumber = Int(arc4random_uniform(100) + 1)
+        guesses = 0
+        guessesLabel.text = "0"
+        submitButtonLabel.isEnabled = true
+        submitButtonLabel.alpha = 1
+        retryButtonLabel.isEnabled = false
+        retryButtonLabel.alpha = 0
+        inputField.text = ""
+    }
 }
 
